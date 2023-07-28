@@ -19,7 +19,7 @@ const Counter = ({ label, minimum }: { label: string; minimum: number }) => {
   };
 
   const decrement = (label: string) => {
-    if (count > 1) {
+    if (count > minimum) {
       setCount((prevCount) => {
         setMessage(`${label} 승객 감소 ${prevCount - 1}`);
         return prevCount - 1;
@@ -46,7 +46,7 @@ const Counter = ({ label, minimum }: { label: string; minimum: number }) => {
         onClick={() => decrement(label)}
         className='spinButton'
         aria-label={`${label} 탑승자 한명 줄이기`}
-        disabled={count === 1}>
+        disabled={count === minimum}>
         -
       </button>
       <input
